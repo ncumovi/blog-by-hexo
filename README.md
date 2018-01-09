@@ -1,18 +1,21 @@
-# blog-by-hexo
-a blog based on hexo
+## blog-by-hexo
 
-# 安装hexo
+基于hexo框架结合github服务器搭建的个人博客
+
+## hexo的安装以及初始化项目
+
+#### 安装hexo
 
 npm install -g hexo
 
-## 初始化项目
+#### 初始化项目
 hexo init 
 
-## 生成静态页面
+#### 生成静态页面
 
 hexo generate（hexo g也可以）
 
-## 本地启动
+#### 本地启动
 
 启动本地服务，进行文章预览调试，命令：
 
@@ -20,7 +23,7 @@ hexo server
 
 浏览器输入http://localhost:4000
 
-# 配置Github
+## 配置Github
 
 1、建立与你用户名对应的仓库，仓库名必须为【your_user_name.github.io】
 
@@ -36,7 +39,7 @@ hexo server
 
        branch: master
 
-# 部署到github服务器上
+## 部署到github服务器上
 
 1、安装插件 否则提示找不到git
 
@@ -46,7 +49,7 @@ hexo server
     
     hexo deploy
 
-# 常用hexo命令
+## 常用hexo命令
 
     hexo new"postName" #新建文章
 
