@@ -28,41 +28,37 @@ hexo server
 
 3、修改如下配置
 
-  deploy:
+    deploy:
 
-     type: git
+       type: git
 
-     repo: git@github.com:yourname/yourname.github.io.git   //千万注意用ssh
+       repo: git@github.com:yourname/yourname.github.io.git   //千万注意用ssh
 
-     branch: master
-     
-4、安装插件 否则提示找不到git
+       branch: master
 
-npm install hexo-deployer-git --save     
+# 部署到github服务器上
 
-5、部署到github服务器上
+1、安装插件 否则提示找不到git
 
-hexo deploy
+    npm install hexo-deployer-git --save     
 
-6、常用hexo命令
+2、 推送服务器
+    
+    hexo deploy
 
-一些常用命令：
+# 常用hexo命令
 
-hexo new"postName" #新建文章
+    hexo new"postName" #新建文章
 
-hexo new page"pageName" #新建页面
+    hexo new page"pageName" #新建页面
 
-hexo generate #生成静态页面至public目录
+    hexo generate #生成静态页面至public目录
 
-hexo server #开启预览访问端口（默认端口4000，'ctrl + c'关闭server）
+    hexo server #开启预览访问端口 本地服务
 
-hexo deploy #将.deploy目录部署到GitHub
+    hexo deploy #将.deploy目录部署到GitHub
 
-hexo help # 查看帮助
+    hexo help # 查看帮助
 
-hexo version #查看Hexo的版本
+    hexo version #查看Hexo的版本
 
-作者：潘柏信
-链接：https://www.jianshu.com/p/465830080ea9
-來源：简书
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
