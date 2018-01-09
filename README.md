@@ -2,6 +2,10 @@
 
 基于hexo框架结合github服务器搭建的个人博客
 
+## live demo
+
+http://ncumovi.github.io
+
 ## hexo的安装以及初始化项目
 
 #### 安装hexo
