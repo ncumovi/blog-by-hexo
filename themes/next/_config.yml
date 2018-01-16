@@ -372,9 +372,9 @@ disqus:
 
 # changyan
 changyan:
-  enable: false
-  appid:
-  appkey:
+  enable: true
+  appid: cytq2iYjj
+  appkey: 49ba21a4ff2e5c8cc397d1045e4ab944
 
 
 # Valine.
