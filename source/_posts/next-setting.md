@@ -8,7 +8,7 @@ categories:
 date: 2018-01-16 14:35:19
 ---
 
-## 1、hexo博客标签页和分类页的生成
+## hexo博客标签页和分类页的生成
 
 #### 标签页的生成
 
@@ -45,8 +45,7 @@ comments: false
       - 文学
     date: 2018-01-08 10:49:19
     ---
-
-## 2、背景音乐的插入
+## 背景音乐的插入
 
 #### 获取网易云音乐的外链地址
 
@@ -79,7 +78,7 @@ comments: false
 
 ```
 
-## 3、hexo图片插入
+## hexo图片插入
 
 #### 找到站点配置文件 
 
@@ -98,11 +97,11 @@ comments: false
 
 ` ![图片文字说明](图片名称.png) `
 
-## 4、hexo的next打赏功能
+## hexo的next打赏功能
 
 可参考  [next打赏](http://blog.csdn.net/lcyaiym/article/details/76796545)
 
-## 5、hexo的next文字统计以及在线时长
+## hexo的next文字统计以及在线时长
 
 可参考  [文字统计](http://blog.csdn.net/wangxw725/article/details/71602256?utm_source=itdadao&utm_medium=referral)
 
