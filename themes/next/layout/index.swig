@@ -22,6 +22,4 @@
   {{ sidebar_template.render(false) }}
 {% endblock %}
 
-{% block  %}
- 慢慢跑
-{% endblock %}
+

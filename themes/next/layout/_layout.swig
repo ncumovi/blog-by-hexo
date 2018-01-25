@@ -38,6 +38,7 @@
         {% if theme.sidebar.display !== 'remove' %}
           {% block sidebar %}{% endblock %}
         {% endif %}
+        {% include './_macro/weibo.swig' %}
       </div>
     </main>
 

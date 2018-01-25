@@ -141,7 +141,7 @@
             </div>
           {% endif %}
 
-          {% include './weibo.swig' %}
+
 
           {% include '../_custom/sidebar.swig' %}
         </div>
