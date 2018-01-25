@@ -152,7 +152,8 @@ links_title: Links
 links_layout: block
 #links_layout: inline
 links:
-  Evans: http://evanstang.cn/
+  Evans (另一个屌丝前端): http://evanstang.cn/
+  Cmk (技术架构工程师): https://github.com/408824338/work
 
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
