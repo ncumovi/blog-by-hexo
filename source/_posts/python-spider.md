@@ -57,7 +57,7 @@ Python3的版本还不够稳定，网上的许多第三方库还无法支持，�
     parser = html_parser.htmlParser()
     outputer = html_outputer.htmlOutputer()
 
-在引入下列相关模块(例如html下载和解析等),一定要在定义**不要在函数内实例化**相关模块
+在引入下列相关模块(例如html下载和解析等),一定要在注意**不要在函数内实例化**相关模块
 
 #### url管理器 
 
@@ -146,3 +146,25 @@ HTML下载器的相关知识可参考 [urllib2相关知识](http://blog.csdn.net
 
     #关闭输出
     fout.close()
+
+#### 踩过的坑
+
+1、在爬虫调度程序里引入相关模块(例如html下载和解析等),一定要在注意**不要在函数内实例化**相关模块
+
+2、在循环或者迭代中不可以操作当前的循环对象，即不能删除操作，否则会报错
+
+    list_urls = list(self.new_urls) 
+    for i in list_urls:
+        if url.find(i) != -1 or i.find(url) != -1:
+            self.new_urls.remove(i)
+
+可复制出一个新的列表，在列表里面循环，然后操作原集合删除操作
+
+3、检查字符串中是否包含另一个字符串的方法有两个**index()**和**find()**, 两者的区别在于index()查找不到字符串时会报错，而find()会返回-1
+
+    str1 = "this is string example....wow!!!";
+    str2 = "movi";
+    
+    print str1.index(str2); // ValueError: substring not found
+    print str1.find(str2);  // -1
+
