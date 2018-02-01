@@ -97,6 +97,8 @@ comments: false
 
 ` ![图片文字说明](图片名称.png) `
 
+注意不要讲图片的名字命名的和图片文件夹即文章标题一样的名字，否则图片出不来。
+
 ## hexo的next打赏功能
 
 可参考  [next打赏](http://blog.csdn.net/lcyaiym/article/details/76796545)
