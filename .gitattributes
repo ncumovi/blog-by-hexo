@@ -1,0 +1,3 @@
+*.js linguist-language=hexo
+*.css linguist-language=hexo
+*.html linguist-language=hexo
