@@ -11,6 +11,10 @@ categories:
 date: 2018-02-05 10:31:19
 ---
 
+## 项目代码
+
+[github仓库代码](https://github.com/ncumovi/gallery-desk-application)
+
 ## vue项目
 
 确保自己有一个vue项目，可以是vue脚手架工程目录，也可以是已经生成的静态资源文件
@@ -205,3 +209,44 @@ git clone https://github.com/electron/electron-quick-start
 
 这里的版本不能随便写，不然在用**grunt-electron-installer**打包成安装应用时会提示版本号不对，不符合规范等，导致打包失败
 
+## 新版功能用到的知识
+
+1、引入electron shell模块运行bat脚本
+
+    const {shell} = require('electron');
+    shell.openItem(path); //path 本地bat文件的路径
+
+增加*.bat脚本 可以执行相关js操作 类似于cmd窗口，在bat脚本前面加入以下代码可以隐藏cmd运行窗口
+
+    @echo off
+    if "%1" == "h" goto begin
+    mshta vbscript:createobject("wscript.shell").run("""%~nx0"" h",0)(window.close)&&exit
+    :begin
+
+2、将根目录下面的package.json文件中的入口修改如下,删除build下面的electron.js
+
+    "scripts": {
+        ...
+        "electron_dev": "electron dist/main.js ",
+        ...
+    },
+
+3、新增add-new.html用于上传图片储存本地，用到的相关模块如下
+
+    node.js的fs模块的fs.open()、fs.write()、fs.writeFile()写文件和修改文件
+
+4、页面之间的通讯
+
+    //add-new.html文件里面js
+    const ipc = require('electron').ipcMain;    
+    ipc.send('build') //build的指令。send到主进程index.js中。
+
+    //main.js主程序接收事件
+    const ipc = require('electron').ipcMain;
+    ipc.on('build',function() {
+        shell.openItem(path_run_dev);
+    })
+
+## 思考
+
+最初的想法是想在electron外壳上加菜单栏，属于系统菜单，因此新建菜单。但是实际过程中因为路径的问题操作起来比较费劲，在你打包成exe文件的时候，只是把vue打包生成的静态资源文件夹dist打包了过去，如果你只是单纯的手动在dist里面添加页面，那么在打包的时候一定会报错。后来发现应该在vue里面写add-new模块的功能，在页面实现菜单相关功能会更容易实现些。
