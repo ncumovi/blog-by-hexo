@@ -13,7 +13,7 @@ date: 2018-10-31 10:52:19
 #### 1、mysql的下载
 
  [mysql下载地址](https://dev.mysql.com/downloads/mysql/)
- <br/><br/>
+ 
  选择对应的下载文件。（我电脑是64位，所以这下载的是64位的下载文件）
  
 #### 2、mysql的安装
