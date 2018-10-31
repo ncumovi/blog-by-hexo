@@ -15,6 +15,9 @@ npm install -g hexo
 #### 初始化项目
 hexo init 
 
+#### 清除缓存文件 db.json 和已生成的静态文件 public
+hexo clean 
+
 #### 生成静态页面
 
 hexo generate（hexo g也可以）
