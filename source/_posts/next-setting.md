@@ -49,7 +49,7 @@ comments: false
 
 #### 获取网易云音乐的外链地址
 
-![外链](music.png)![复制代码](music2.png)
+![外链](/img/next-setting/music.png)![复制代码](/img/next-setting/music2.png)
 
 #### 将外链放到指定的模板文件中 `themes\next\layout\_macro\sidebar.swig`
 
@@ -98,6 +98,11 @@ comments: false
 ` ![图片文字说明](图片名称.png) `
 
 注意不要讲图片的名字命名的和图片文件夹即文章标题一样的名字，否则图片出不来。
+
+
+**注意：**上述引用图片的方式只能在文章详情里面才会正常显示，在首页的文章里面图片无法显示，此时可以在**\hexo\source**目录下新建文件夹，命名为images或者其他你喜欢的名字，然后编辑你的md博文，插入下面的代码样式：
+
+` ![图片文字说明](/images/图片名称.png) `
 
 ## hexo的next打赏功能
 

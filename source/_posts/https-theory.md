@@ -8,7 +8,7 @@ categories:
 date: 2018-02-01 14:56:09
 ---
 
-![https原理思维导图](xmind.png)
+![https原理思维导图](/img/https-theory/xmind.png)
 
 #### [https相关原理](http://blog.csdn.net/luocn99/article/details/39777707)
 #### [三次握手信号的原理](http://blog.csdn.net/cyfcsd/article/details/52049664)
