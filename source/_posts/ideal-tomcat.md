@@ -13,12 +13,12 @@ date: 2018-11-09 13:59:19
 前置条件就是你安装了IDEA编辑器、JDK以及Tomcat。同时本地要有一个java项目，否则拿什么去启动，当然你也可以本地新建一个，不过不在本次讲解范畴之内。。。
 
 
-## 1、配置项目
+## 配置项目
 
-#### 1-1、打开project structure进行配置
+#### 打开project structure进行配置
 ![打开项目结构进行设置](/img/ideal-tomcat/open_project_structure.png)
 
-#### 1-2、project的配置
+#### project的配置
 
 1、项目名称随便写，一般会默认当前项目名称
 
@@ -30,7 +30,7 @@ date: 2018-11-09 13:59:19
 
 ![project配置](/img/ideal-tomcat/project.png)
 
-#### 1-3、module的配置
+#### module的配置
 
 ![module](/img/ideal-tomcat/module.png)
 
@@ -48,7 +48,7 @@ module里面的dependencies里面不用选择，ideal会帮我们自动填好，
 
 ![配置module的dependencies](/img/ideal-tomcat/module_dependenciespng.png)
 
-#### 1-4、libraries的配置
+#### libraries的配置
 
 新增java,选择当前项目运行所依赖的jar包
 
@@ -56,7 +56,7 @@ module里面的dependencies里面不用选择，ideal会帮我们自动填好，
 ![新增依赖](/img/ideal-tomcat/library_dep.png)
 ![选择当前module](/img/ideal-tomcat/choose_module.png)
 
-#### 1-5、Facets的配置
+#### Facets的配置
 
 点击**+**新增web
 
@@ -64,7 +64,7 @@ module里面的dependencies里面不用选择，ideal会帮我们自动填好，
 
 ![选择当前项目模块](/img/ideal-tomcat/facet_web1.png)
 
-#### 1-6、Artifacts的配置
+#### Artifacts的配置
 
 点击**+**新增,选择Web Application:Exploded,然后选择from modules
  
@@ -75,7 +75,7 @@ module里面的dependencies里面不用选择，ideal会帮我们自动填好，
 ![选择模块](/img/ideal-tomcat/art_modules.png)
 
 
-## 2、配置tomcat
+## 配置tomcat
 
 点击file，打开设置选项，搜索**Application Server**,然后选则server，添加**tomcat server**，选择tomcat的安装路径
 
@@ -96,7 +96,7 @@ module里面的dependencies里面不用选择，ideal会帮我们自动填好，
 ![输入tomat的名称](/img/ideal-tomcat/tomat_last.png)
 
 
-## 3、配置完成,大功告成。
+## 配置完成,大功告成。
 
 ![点击run开启tomcat](/img/ideal-tomcat/tomcat_run.png)
 
