@@ -27,9 +27,9 @@ date: 2018-10-31 16:44:19
     
 4、找了一堆资料，安装了Visual Studio 2017，然而并没有什么卵用，后来又查资料说可能是兼容性的问题，因此需要直接安装[mysqlclent编译包](https://www.lfd.uci.edu/~gohlke/pythonlibs/#mysqlclient)，然后下载资源，cp后面的数字代表python版本号。
 
-5、最好将刚刚下载的资源放到你的项目目录里面，然后
+5、最好将刚刚下载的资源放到你的项目目录里面，然后(最好是在cmd命令窗口)
 
-    python install mysqlclient‑1.3.13‑cp37‑cp37m‑win_amd64.whl
+    pip install mysqlclient‑1.3.13‑cp37‑cp37m‑win_amd64.whl
     
 终于黄天不负有心人，成功安装了mysqlclient
 
