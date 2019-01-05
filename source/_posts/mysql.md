@@ -44,6 +44,10 @@ zip格式是自己解压，解压缩之后其实MySQL就可以使用了。
 #### 创建用户
 
     insert into mysql.user(Host,User,Password) values("localhost","test",password("1234"));
+
+    在mysql8.0版本里，用以下方式：
+
+    create user 'username'@'localhost' identified by 'pwd'
     
 注意：此处的"localhost"，是指该用户只能在本地登录，不能在另外一台机器上远程登录。如果想远程登录的话，将"localhost"改为"%"，表示在任何一台电脑上都可以登录。也可以指定某台机器可以远程登录
 
@@ -60,7 +64,16 @@ zip格式是自己解压，解压缩之后其实MySQL就可以使用了。
     授权test用户拥有所有数据库的某些权限： 　
     grant select,delete,update,create,drop on *.* to test@"%" identified by "1234";
 
-注：如果授权不成功，则先执行 **flush privileges**（刷新系统权限），然后再授权
+    在mysql8.0版本里，用以下方式：
+    grant all privileges on 'testDB'.* to 'test'@'localhost'
+
+
+注：如果授权不成功，则先执行 **flush privileges**（刷新系统权限），然后再授权,在8.0版本里需要更换加密方式，否则无法登陆数据库
+
+    alter user 'username'@'localhost' identified with mysql_native_password by 'newpwd'
+
+    然后刷新下权限
+    flush privileges
 
 #### 用户登录
 

@@ -64,6 +64,8 @@ module里面的dependencies里面不用选择，ideal会帮我们自动填好，
 
 ![选择当前项目模块](/img/ideal-tomcat/facet_web1.png)
 
+![注意web的路径](/img/ideal-tomcat/facet_web2.png)
+
 #### Artifacts的配置
 
 点击**+**新增,选择Web Application:Exploded,然后选择from modules
@@ -100,3 +102,10 @@ module里面的dependencies里面不用选择，ideal会帮我们自动填好，
 
 ![点击run开启tomcat](/img/ideal-tomcat/tomcat_run.png)
 
+## 如何在配置好启动本地服务后，用本地后台代码打包成jar包
+
+![本地编译打包1](/img/ideal-tomcat/buildJar1.png)
+
+![本地编译打包2](/img/ideal-tomcat/buildJar2.png)
+
+然后就会在target文件夹下面生成jar包
