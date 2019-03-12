@@ -97,6 +97,9 @@ module里面的dependencies里面不用选择，ideal会帮我们自动填好，
 
 ![输入tomat的名称](/img/ideal-tomcat/tomat_last.png)
 
+最后一步，需要配置tomcat的Deployment,设置依赖
+
+![配置tomcat的Deployment](/img/ideal-tomcat/tomat_last1.png)
 
 ## 配置完成,大功告成。
 
