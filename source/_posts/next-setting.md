@@ -86,7 +86,7 @@ comments: false
 
 #### 安装图片插件
 
-`npm install https://github.com/CodeFalling/hexo-asset-image --save`
+`npm install hexo-asset-image --save`
 
 
 #### 引用
