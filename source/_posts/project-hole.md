@@ -5,11 +5,13 @@ tags:
   - echarts
   - vue
   - hammer
+  - hexo
 categories:
   - 项目总结
 ---
 
-## 手机端地图缩放和饿了么tab切换组件左右滑动切换会相互影响，因此引入hammer.js做手势控制
+## 手机端地图缩放和饿了么 tab 切换组件左右滑动切换会相互影响，因此引入 hammer.js 做手势控制
+
 ```
 // 控制手势滑动切换距离
 bindEvents() {
@@ -32,9 +34,11 @@ bindEvents() {
     },
 ```
 
-## echarts中纵坐标有负值如何倒圆角
-series-bar的data项可以针对具体项做操作，所以这里的思路就是对原始数据遍历，对每个数据都做个性化处理，以此解决倒圆角的问题
-可参考[echarts-柱状图实现正负坐标倒圆角设置及bar颜色设置](https://blog.csdn.net/Y_shihao/article/details/110558663)
+## echarts 中纵坐标有负值如何倒圆角
+
+series-bar 的 data 项可以针对具体项做操作，所以这里的思路就是对原始数据遍历，对每个数据都做个性化处理，以此解决倒圆角的问题
+可参考[echarts-柱状图实现正负坐标倒圆角设置及 bar 颜色设置](https://blog.csdn.net/Y_shihao/article/details/110558663)
+
 ```
 series: [
   {
@@ -66,8 +70,11 @@ series: [
   },
 ]
 ```
+
 ## 模拟支付宝查看基金可左滑查看更多项，也可以下滑
+
 整体布局分为左右两块，左侧和右侧均分为上下，左侧和右侧上面绝对定位固定，布局代码如下
+
 ```
 <div class="jj-table-wrap">
   <div class="jj-table-mask" v-if="scrollLeft > 0"></div>
@@ -130,7 +137,7 @@ series: [
       }
       .jj-table-left-bottom {
         margin-top: 42px;
-      
+
       }
     }
     .jj-table-right {
@@ -180,7 +187,9 @@ series: [
   }
 
 ```
+
 关键点在于向左侧滑动的时候，怎么联动右侧上面的标题，思路是监听右侧下面滑动事件，在右侧下面滑动的时候，手动让右侧上方的的标题栏同步滑动，代码实现如下
+
 ```
 //横向滚动监听
 let rowScrollDom = document.querySelector(".jj-table-right"),
@@ -200,6 +209,7 @@ targetScroolXDom.addEventListener("scroll", (e) => {
 ## 搜索历史参照京东交互
 
 获取当前搜索历史列表下的所有历史节点，遍历循环获取其距离左侧视口的距离，从而判断属于第几行，然后进行截断操作
+
 ```
 //历史记录 页面超出三行截取数据
 let count = 0;
@@ -224,7 +234,7 @@ setTimeout(() => {
 });
 ```
 
-## vue后台管理项目用户动态菜单权限
+## vue 后台管理项目用户动态菜单权限
 
 ```
 //利用路由守卫，在每个路由进入之前校验登录token是否有效，如果有效，表示登录状态有效，此时如果要去的路由是登录，则直接到首页home
@@ -263,11 +273,13 @@ if (hasToken) {
 
 ```
 
-## 超过三级嵌套路由，keep-alive无法缓存
-1、把二级的路由name 和三级路由name 一块 放到include 内。
-  举个例子本来是缓存[menu,menu3],要把二级路由也加上，也就是[menu,menu2,menu3]
+## 超过三级嵌套路由，keep-alive 无法缓存
 
-2、偷懒一点的方法，去在路由守卫里面，每次跳转的时候根据一些规则把to.match里面二级路由去除掉
+1、把二级的路由 name 和三级路由 name 一块 放到 include 内。
+举个例子本来是缓存[menu,menu3],要把二级路由也加上，也就是[menu,menu2,menu3]
+
+2、偷懒一点的方法，去在路由守卫里面，每次跳转的时候根据一些规则把 to.match 里面二级路由去除掉
+
 ```
 function filterRoutes(routesArr) {
   if (routesArr && routesArr.length) {
@@ -284,7 +296,9 @@ function filterRoutes(routesArr) {
 filterRoutes(to.matched)
 next()
 ```
+
 3、这个方法比较靠谱，大致思路就是把多级嵌套路由拍平成二级嵌套路由，参考[无限级路由缓存方案](https://www.jianshu.com/p/739ae2a73a6d)
+
 ```
 [
   {
@@ -412,14 +426,16 @@ function castToFlatRoute(routes, parentPath, flatRoutes = []) {
 
 ```
 
-## nvm安装node指定版本报错
+## nvm 安装 node 指定版本报错
 
 Node.js vnode.0.0 is only available in 32-bit.
 
-这时以管理员身份运行cmd，然后重新nvm install 指定版本即可
+这时以管理员身份运行 cmd，然后重新 nvm install 指定版本即可
 
-## hexo博客相关问题和坑
+## hexo 博客相关问题和坑
+
 1、hexo deploy 失败
+
 ```
   //报错信息如下
   TypeError [ERR_INVALID_ARG_TYPE]: The "mode" argument must be integer.`
@@ -427,15 +443,18 @@ Node.js vnode.0.0 is only available in 32-bit.
   出现该问题的原因是node版本过高，切换版本以后重新安装hexo,再次生成和推送即可
 
 ```
-2、克隆hexo博客项目以后，npm isntall报错，大致意思就是某个插件下载不下来，就是这个**hexo-asset-image**，这个插件是展示图片用的，在npm install以前先npm install hexo-asset-image --save,否则无法安装成功。
+
+2、克隆 hexo 博客项目以后，npm isntall 报错，大致意思就是某个插件下载不下来，就是这个**hexo-asset-image**，这个插件是展示图片用的，在 npm install 以前先 npm install hexo-asset-image --save,否则无法安装成功。
+
 ```
 git clone git@github.com:ncumovi/blog-by-hexo.git
 npm install hexo -g --save
-npm install hexo-asset-image --save 
+npm install hexo-asset-image --save
 npm install
 hexo server
 ```
-3、常用hexo命令
+
+3、常用 hexo 命令
 
     hexo new"postName" #新建文章
 
@@ -450,3 +469,30 @@ hexo server
     hexo help # 查看帮助
 
     hexo version #查看Hexo的版本
+
+## vue 隔代传递数据
+
+当祖先组件使用 provide 提供数据源，子孙组件通 inject 获取数据，但是获取到的数据不是响应式的，也就是说当祖先组件数据源变更的时候，子孙组件获取到的数据不会变化，还是之前的值，为了实现动态响应，可参考 react 传递函数的思路，向子孙组件提供方法而不是直接提供数据，子组件通过 coputed 属性获取数据，还可以用 watch 属性观测,授之于鱼不如授之于渔，具体代码实现如下：
+
+```
+//父组件
+provide() {
+  return {
+    getNodeData: () => this.nodeData,
+  };
+},
+
+//子孙组件
+inject:['getNodeData'],
+computed:{
+  nodeData(){
+    return this.getNodeData();
+  }
+},
+watch:{
+  nodeData(v){
+    //操作
+    ...
+  }
+}
+```
