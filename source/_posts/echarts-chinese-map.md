@@ -9,16 +9,16 @@ categories:
   - 前端
 ---
 
+## Echarts3 中国地图下钻至县级
 
-## Echarts3中国地图下钻至县级
-涉及到省市县三级地图，点击可下钻，当前vue版本是参照 [Echarts3中国地图下钻至县级](https://github.com/Shanks-xz/echarts3-chinese-map-drill-down)
+涉及到省市县三级地图，点击可下钻，当前 vue 版本是参照 [Echarts3 中国地图下钻至县级](https://github.com/Shanks-xz/echarts3-chinese-map-drill-down)
 
-首先要有全国、省市县的地图json文件
-![地图json文件](/img/echarts-chinese-map/chinaMap.png)
+首先要有全国、省市县的地图 json 文件
+![地图json文件](img/echarts-chinese-map/chinaMap.png)
 
 #### 初始化
 
-初始化echarts对象,获取地图json文件，注册地图，然后开始绘制
+初始化 echarts 对象,获取地图 json 文件，注册地图，然后开始绘制
 
 ```
  initMap() {
@@ -42,8 +42,11 @@ categories:
     });
   },
 ```
+
 #### 下钻
- 绑定地图点击事件，执行下钻
+
+绑定地图点击事件，执行下钻
+
 ```
 bindEchartsEvent() {
       let that = this
@@ -89,7 +92,9 @@ bindEchartsEvent() {
 ```
 
 #### 下钻到省地图
+
 获取省地图，然后注册，然后绘制
+
 ```
  //获取省地图map.json
   getSecondMap(params) {
@@ -108,7 +113,8 @@ bindEchartsEvent() {
   },
 ```
 
-####  地图的渲染
+#### 地图的渲染
+
 ```
 renderMap(mapTitle, mapJson, customerNum, colorMax = 1500) {
   //地图配置参数，参数按顺序渲染
@@ -319,8 +325,8 @@ renderMap(mapTitle, mapJson, customerNum, colorMax = 1500) {
 ```
 
 #### 遇到的坑
-1、roam: "scale" 这个属性一定要打开，否则无法缩放
 
+1、roam: "scale" 这个属性一定要打开，否则无法缩放
 
 #### 完整代码如下
 

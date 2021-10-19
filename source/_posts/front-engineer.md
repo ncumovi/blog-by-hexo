@@ -1,6 +1,6 @@
 ---
 title: 前端知识查缺补漏
-date: 2021-10-15 15:29:21
+date: 2021-10-18 17:29:21
 tags:
   - 原型链
   - 变量提升
@@ -114,7 +114,7 @@ Child.prototype = new F();
 
 ## js 校验数据类型
 
-![校验数据类型](/img/front-engineer/typeOf.png)
+![校验数据类型](img/front-engineer/typeOf.png)
 
 ## bind 的实现
 
@@ -206,4 +206,4 @@ return typeOf ret == 'object' ? ret : obj
 
 ## 事件循环机制
 
-![校验数据类型](/img/front-engineer/eventLoop.png)
+![校验数据类型](img/front-engineer/eventLoop.png)
