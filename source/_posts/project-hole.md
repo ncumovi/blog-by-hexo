@@ -432,6 +432,57 @@ Node.js vnode.0.0 is only available in 32-bit.
 
 这时以管理员身份运行 cmd，然后重新 nvm install 指定版本即可
 
+
+## vue 隔代传递数据如何响应式
+
+当祖先组件使用 provide 提供数据源，子孙组件通 inject 获取数据，但是获取到的数据不是响应式的，也就是说当祖先组件数据源变更的时候，子孙组件获取到的数据不会变化，还是之前的值，为了实现动态响应，可参考 react 传递函数的思路，向子孙组件提供方法而不是直接提供数据，子组件通过 coputed 属性获取数据，还可以用 watch 属性观测,授之于鱼不如授之于渔，具体代码实现如下：
+
+```
+//父组件
+provide() {
+  return {
+    getNodeData: () => this.nodeData,
+  };
+},
+
+//子孙组件
+inject:['getNodeData'],
+computed:{
+  nodeData(){
+    return this.getNodeData();
+  }
+},
+watch:{
+  nodeData(v){
+    //操作
+    ...
+  }
+}
+```
+
+## upload组件form表单校验问题
+点击提交检验时提示要上传，当上传完毕以后却没有清除表单校验信息，无论你的trigger配置的是blur还是change,都不会生效，这个时候需要upload组件上传成功回调里面，找到upload组件父组件form-item那一项，通过this.$parent或其他方式找到form-item组件实例，执行clearValidate()，实现代码如下：
+
+```
+ ...
+  <el-form-item prop='file'>
+    <el-upload
+    ...
+    :on-success="successUpload"
+    >
+    ...
+    </el-upload>
+  </el-form-item>
+ ...
+
+//js
+successUpload(){
+  ...
+  this.$parent.clearValidate();
+}
+
+```
+注：也可通过validateField针对当前上传组件字段重新校验即可。
 ## hexo 博客相关问题和坑
 
 1、hexo deploy 失败
@@ -477,31 +528,4 @@ hexo server
 ![校验数据类型](/img/front-engineer/typeOf.png)
 要改成绝对路径
 ![校验数据类型](img/front-engineer/typeOf.png)
-```
-
-## vue 隔代传递数据
-
-当祖先组件使用 provide 提供数据源，子孙组件通 inject 获取数据，但是获取到的数据不是响应式的，也就是说当祖先组件数据源变更的时候，子孙组件获取到的数据不会变化，还是之前的值，为了实现动态响应，可参考 react 传递函数的思路，向子孙组件提供方法而不是直接提供数据，子组件通过 coputed 属性获取数据，还可以用 watch 属性观测,授之于鱼不如授之于渔，具体代码实现如下：
-
-```
-//父组件
-provide() {
-  return {
-    getNodeData: () => this.nodeData,
-  };
-},
-
-//子孙组件
-inject:['getNodeData'],
-computed:{
-  nodeData(){
-    return this.getNodeData();
-  }
-},
-watch:{
-  nodeData(v){
-    //操作
-    ...
-  }
-}
 ```
