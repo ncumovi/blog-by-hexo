@@ -426,6 +426,58 @@ function castToFlatRoute(routes, parentPath, flatRoutes = []) {
 
 ```
 
+
+
+
+
+## 项目文件上传功能
+避免产生废文档 需要先将文件对象缓存在数据中，然后在整个表单提交的时候一起提交
+
+## 当elementUI 下拉框组件下拉项过多时会引起页面卡顿
+
+思路是利用 filterable 属性和 filter-method="handlerSelectFilter"，一开始只渲染50条，当用户搜索的时候再从全部选项里面去找，回显的时候需要注意一下
+```
+handlerSelectFilter(query = "") {
+  let oriOpts = this.options;
+
+  let arr = oriOpts.filter((item) => {
+    return item.label.includes(query) || item.value.includes(query);
+  });
+
+  if (arr.length > 50) {
+    this.dictOpts = arr.slice(0, 50);
+  } else {
+    this.dictOpts = arr;
+  }
+},
+
+回显的时候特殊处理下，找到选中项的条目加入到现有的选项中,区分下是多选还是单选
+
+addValueOptions() {
+  let oriVal = this.value;
+  let oriOpts =this.options;
+
+  if (_.isArray(oriVal)) {
+    let choosedArr = _.filter(oriOpts, (item) => {
+      // 从大option中找到当前条
+      return _.includes(oriVal, item.value);
+    });
+    this.dictOpts = _.uniqBy(choosedArr.concat(this.dictOpts), item => item.value).slice(0,168);
+  } else {
+    let target = oriOpts.find((item) => {
+      // 从大option中找到当前条
+      return item.value === oriVal;
+    });
+    if (target) {
+      // 将当前条与小option比对，没有则加入
+      if (this.dictOpts.every((item) => item.value !== target.value)) {
+        this.dictOpts.unshift(target);
+      }
+    }
+  }
+},
+
+```
 ## nvm 安装 node 指定版本报错
 
 Node.js vnode.0.0 is only available in 32-bit.
@@ -483,6 +535,7 @@ successUpload(){
 
 ```
 注：也可通过validateField针对当前上传组件字段重新校验即可。
+
 ## hexo 博客相关问题和坑
 
 1、hexo deploy 失败
